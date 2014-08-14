@@ -15,21 +15,20 @@ $ git clone https://github.com/mozilla/nimble.webmaker.org.git --recursive
 
 2) In your nimble.webmaker.org directory, install all of the necessary dependencies:
 
-If you don't already have `grunt-cli` installed globally, here is the console command using `npm` -
+If you don't already have `grunt-cli` and `bower` installed globally, here is the console command using `npm` -
 
 ```
 $ sudo npm install grunt-cli -g
+```
+
+```
+$ sudo npm install bower -g
 ```
 
 Afterwards, install the npm modules -
 
 ```
 $ npm install
-```
-
-Next, install submodules' dependencies -
-```
-$ grunt init
 ```
 
 3) Copy the distributed environment file via command line, or manually using a code editor:

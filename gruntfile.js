@@ -7,7 +7,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     exec: {
       update_nimble_submodules: {
-        command: 'cd ' + Path.join(__dirname, '/nimble') + '; git submodule update --init',
+        command: 'git submodule update --init --recursive',
         stdout: true,
         stderr: true
       }
