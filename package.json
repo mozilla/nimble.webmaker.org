@@ -1,0 +1,42 @@
+{
+  "name": "nimble.webmaker.org",
+  "version": "0.0.1",
+  "description": "A Webmaker-configured version of the mozilla/nimble project. -- An in-browser version of Brackets.",
+  "scripts": {
+    "postinstall": "bower install && grunt init",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla/nimble.webmaker.org"
+  },
+  "keywords": [
+    "Nimble",
+    "Webmaker",
+    "Brackets"
+  ],
+  "license": "Mozilla Public License, version 2.0",
+  "bugs": {
+    "url": "https://github.com/mozilla/nimble.webmaker.org/issues"
+  },
+  "homepage": "https://github.com/mozilla/nimble.webmaker.org",
+  "dependencies": {
+    "body-parser": "^1.6.3",
+    "compression": "^1.0.11",
+    "express": "^4.8.3",
+    "habitat": "^1.1.0",
+    "helmet": "^0.4.0",
+    "messina": "^0.1.2",
+    "morgan": "^1.2.2",
+    "newrelic": "^1.9.2",
+    "swig": "^1.4.2",
+    "webmaker-auth": "^0.1.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-exec": "^0.4.6",
+    "jit-grunt": "^0.8.0",
+    "time-grunt": "^0.4.0"
+  }
+}
