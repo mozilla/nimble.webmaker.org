@@ -30,18 +30,31 @@ define(function (require, exports, module) {
 
     //TODO: Do we want to do anything other than console.log for all these events?
     sync.on('syncing', function() {
-        console.log('sync started');
+        console.log('MakeDrive sync started');
+    });
+    sync.on('connected', function() {
+        console.log('Connected to MakeDrive server');
+    });
+    sync.on('disconnected', function() {
+        console.log('Disconnected from MakeDrive server');
     });
     sync.on('error', function(e) {
+        // Try to get better info from the error object
+        if(e.code && e.message) {
+            e = 'Error code: ' + e.code + ' - ' + e.message;
+        } else if(e.stack) {
+            e = e.stack;
+        } else if(e.data) {
+            e = e.data;
+        } else if(e.error) {
+            e = e.error;
+        }
         console.log('sync error: ', e);
 
         Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, "MakeDrive Sync Error", e);
     });
     sync.on('completed', function() {
-        console.log('sync completed');
-    });
-    sync.on('updates', function() {
-        console.log('server has updates');
+        console.log('MakeDrive sync completed');
     });
 
     function showOpenDialog(allowMultipleSelection, chooseDirectories, title, initialPath, fileTypes, callback) {
