@@ -54,10 +54,10 @@ app.use( webmakerAuth.cookieParser() );
 app.use( webmakerAuth.cookieSession() );
 
 router( app );
-// Setup static route to serve Nimble/Brackets on "/" (root of the server).
-app.use( "/", express.static(Path.join(__dirname, 'nimble/src')) );
 // External libraries that we want to expose for Nimble/Brackets e.g. Extensions.
 app.use( "/thirdparty", express.static(Path.join(__dirname, 'bower_components')) );
+// Setup static route to serve Nimble/Brackets on "/" (root of the server).
+app.use( "/", express.static(Path.join(__dirname, 'nimble/src')) );
 // This route is exposed for extension loading (see makedrive-sync-icon in ExtensionLoader.js)
 app.use( "/extensions/default/", express.static(Path.join(__dirname, 'bower_components')) );
 
