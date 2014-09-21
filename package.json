@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Webmaker-configured version of the mozilla/nimble project. -- An in-browser version of Brackets.",
   "scripts": {
-    "postinstall": "bower install && grunt init",
+    "postinstall": "bower install",
     "start": "node app.js"
   },
   "repository": {
