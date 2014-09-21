@@ -2,7 +2,7 @@
   "name": "nimble.webmaker.org",
   "dependencies": {
     "makedrive": "0.0.43",
-    "filer-dialogs": "git://github.com/ScottDowne/open-dialog.git#79b1880c6a",
-    "makedrive-sync-icon": "git://github.com/cdot-brackets-extensions/makedrive-sync-icon.git#2279ee747f"
+    "filer-dialogs": "https://github.com/ScottDowne/filer-dialogs.git",
+    "makedrive-sync-icon": "https://github.com/cdot-brackets-extensions/makedrive-sync-icon"
   }
 }
