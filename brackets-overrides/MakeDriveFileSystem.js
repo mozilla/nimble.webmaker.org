@@ -13,7 +13,7 @@ define(function (require, exports, module) {
         MakeDrive       = require("thirdparty/makedrive/client/dist/makedrive"),
         Dialog          = require("thirdparty/filer-dialogs/filer-dialogs");
 
-    var fs              = MakeDrive.fs(),
+    var fs              = MakeDrive.fs({interval: 10000}),
         Path            = MakeDrive.Path,
         watchers        = {};
 
