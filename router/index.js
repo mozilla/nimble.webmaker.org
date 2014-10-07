@@ -15,7 +15,11 @@ module.exports = function( app ) {
     res.render('main.js');
   });
 
-  //
+  app.get("/thirdparty/browser-appshell.js", function(req, res) {
+    res.set( "Content-Type", "application/javascript" );
+    res.render('browser-appshell.js');
+  });
+
   app.get("/", function(req, res) {
     res.render('index.html');
   });
