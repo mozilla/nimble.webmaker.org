@@ -15,7 +15,8 @@ define(function (require, exports, module) {
 
     var fs              = MakeDrive.fs({interval: 10000}),
         Path            = MakeDrive.Path,
-        watchers        = {};
+        watchers        = {},
+        errorDialog;
 
     var _changeCallback;            // Callback to notify FileSystem of watcher changes
 
@@ -39,6 +40,11 @@ define(function (require, exports, module) {
         console.log('Disconnected from MakeDrive server');
     });
     sync.on('error', function(e) {
+        // Bail if there's already an error dialog showing
+        if(errorDialog) {
+            return;
+        }
+
         // Try to get better info from the error object
         if(e.code && e.message) {
             e = 'Error code: ' + e.code + ' - ' + e.message;
@@ -51,7 +57,13 @@ define(function (require, exports, module) {
         }
         console.log('sync error: ', e);
 
-        Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, "MakeDrive Sync Error", e);
+        // When the dialog gets closed, kill this reference so
+        // we'll get future error reports via a dialog.
+        errorDialog = Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR,
+                                              "MakeDrive Sync Error", e);
+        errorDialog.done(function() {
+            errorDialog = null;
+        });
     });
     sync.on('completed', function() {
         console.log('MakeDrive sync completed');
