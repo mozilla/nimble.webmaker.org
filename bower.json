@@ -1,7 +1,7 @@
 {
   "name": "nimble.webmaker.org",
   "dependencies": {
-    "makedrive": "0.0.66",
+    "makedrive": "0.0.67",
     "filer-dialogs": "https://github.com/ScottDowne/filer-dialogs.git",
     "makedrive-sync-icon": "https://github.com/cdot-brackets-extensions/makedrive-sync-icon"
   }
