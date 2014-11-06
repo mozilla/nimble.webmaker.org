@@ -56,14 +56,6 @@ define(function (require, exports, module) {
             e = e.error;
         }
         console.log('sync error: ', e);
-
-        // When the dialog gets closed, kill this reference so
-        // we'll get future error reports via a dialog.
-        errorDialog = Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR,
-                                              "MakeDrive Sync Error", e);
-        errorDialog.done(function() {
-            errorDialog = null;
-        });
     });
     sync.on('completed', function() {
         console.log('MakeDrive sync completed');
