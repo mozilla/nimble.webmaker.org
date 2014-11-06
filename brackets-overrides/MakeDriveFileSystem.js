@@ -6,8 +6,6 @@ define(function (require, exports, module) {
 
     var FileSystemError = require("filesystem/FileSystemError"),
         FileSystemStats = require("filesystem/FileSystemStats"),
-        Dialogs         = require("widgets/Dialogs"),
-        DefaultDialogs  = require("widgets/DefaultDialogs"),
         // TODO: we have to figure out how we're going to build/deploy makedrive.js, this is hacky.
         // since it requires a manual `grunt build` step in src/thirdparty/makedrive
         MakeDrive       = require("thirdparty/makedrive/client/dist/makedrive"),
@@ -15,8 +13,7 @@ define(function (require, exports, module) {
 
     var fs              = MakeDrive.fs({interval: 10000}),
         Path            = MakeDrive.Path,
-        watchers        = {},
-        errorDialog;
+        watchers        = {};
 
     var _changeCallback;            // Callback to notify FileSystem of watcher changes
 
@@ -40,10 +37,6 @@ define(function (require, exports, module) {
         console.log('Disconnected from MakeDrive server');
     });
     sync.on('error', function(e) {
-        // Bail if there's already an error dialog showing
-        if(errorDialog) {
-            return;
-        }
 
         // Try to get better info from the error object
         if(e.code && e.message) {
@@ -56,6 +49,7 @@ define(function (require, exports, module) {
             e = e.error;
         }
         console.log('sync error: ', e);
+
     });
     sync.on('completed', function() {
         console.log('MakeDrive sync completed');
